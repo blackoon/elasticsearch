@@ -191,3 +191,7 @@ The options are to execute the operation on a different thread, or to
 execute it on the calling thread (note that the API is still asynchronous). By
 default, `operationThreaded` is set to `true` which means the operation
 is executed on a different thread.
+IndexResponse response = this.client
+				.prepareIndex("lemontree", "home45").setOperationThreaded(false).//默认是异步线程true
+				setSource(json)
+				.execute().actionGet();
